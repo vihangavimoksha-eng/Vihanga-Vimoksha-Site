@@ -1,0 +1,691 @@
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+`html
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="docTitle">PORTFOLIO | Creative Showcase</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yt: '#FF0000',
+                            ig: '#E4405F',
+                            fb: '#1877F2',
+                            wa: '#25D366',
+                            tg: '#24A1DE',
+                            tt: '#00F2FE'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Sinhala', sans-serif;
+            background-color: #050508;
+            color: #f4f4f5;
+            /* Atmospheric dark nature background image with overlay */
+            background-image: 
+                linear-gradient(to bottom, rgba(5, 5, 8, 0.82), rgba(5, 5, 8, 0.92)),
+                url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Glassmorphism Card Effects */
+        .glass-card {
+            background: rgba(15, 17, 23, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.28);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.06);
+        }
+
+        .glass-nav {
+            background: rgba(8, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Gradient Text Highlights */
+        .gradient-accent {
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Animated Glowing Elements */
+        .glow-dot {
+            box-shadow: 0 0 12px #22c55e;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050508;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #52525b;
+        }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-white selection:text-black">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50">
+        <nav class="glass-nav px-4 sm:px-8 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-white text-black font-black text-xl flex items-center justify-center rounded-xl shadow-lg transition-transform group-hover:scale-105">
+                        M
+                    </div>
+                    <span class="font-extrabold text-lg tracking-wider text-white uppercase">PORTFOLIO</span>
+                </a>
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+<!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center gap-8 text-xs font-bold tracking-widest uppercase text-zinc-300">
+                    <a href="#about" class="hover:text-white transition-colors" data-en="ABOUT" data-si="මා ගැන">ABOUT</a>
+                    <a href="#travel" class="hover:text-white transition-colors" data-en="TRAVEL" data-si="සංචාර">TRAVEL</a>
+                    <a href="#projects" class="hover:text-white transition-colors" data-en="WORKS" data-si="නිර්මාණ">WORKS</a>
+                    <a href="#socials" class="hover:text-white transition-colors" data-en="CONNECT" data-si="සබැඳි">CONNECT</a>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="flex items-center gap-4">
+                    <!-- Language Switcher Toggle -->
+                    <div class="flex items-center bg-zinc-900/90 p-1 rounded-xl border border-zinc-700/80 text-xs font-bold">
+                        <button id="btnEn" onclick="setLanguage('en')" class="px-3 py-1.5 rounded-lg bg-white text-black transition-all shadow-md">EN</button>
+                        <button id="btnSi" onclick="setLanguage('si')" class="px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-all">සිංහල</button>
+                    </div>
+
+                    <!-- Contact Trigger Button -->
+                    <button onclick="openContactModal()" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-all shadow-lg hover:shadow-purple-500/20">
+                        <i class="fa-solid fa-paper-plane text-xs"></i>
+                        <span data-en="CONTACT" data-si="සම්බන්ධ වන්න">CONTACT</span>
+                    </button>
+
+                    <!-- Mobile Navigation Hamburger -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-white text-xl" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pt-4 border-t border-zinc-800/80 flex flex-col gap-4 text-xs font-bold tracking-widest uppercase text-zinc-300">
+                <a href="#about" onclick="toggleMobileMenu()" class="hover:text-white transition-colors p-2" data-en="ABOUT" data-si="මා ගැන">ABOUT</a>
+                <a href="#travel" onclick="toggleMobileMenu()" class="hover:text-white transition-colors p-2" data-en="TRAVEL" data-si="සංචාර">TRAVEL</a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="hover:text-white transition-colors p-2" data-en="WORKS" data-si="නිර්මාණ">WORKS</a>
+                <a href="#socials" onclick="toggleMobileMenu()" class="hover:text-white transition-colors p-2" data-en="CONNECT" data-si="සබැඳි">CONNECT</a>
+                <button onclick="openContactModal(); toggleMobileMenu();" class="w-full text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl text-xs font-bold uppercase tracking-wider mt-2">
+                    <span data-en="CONTACT ME" data-si="සම්බන්ධ වන්න">CONTACT ME</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-36 pb-20 md:pt-48 md:pb-32 px-4 sm:px-8 max-w-7xl mx-auto">
+        <!-- Ambient Glowing Background Bubbles -->
+        <div class="absolute top-20 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute top-40 right-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl -z-10"></div>
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Header Details -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-zinc-900/80 border border-zinc-700/80 text-xs font-bold tracking-wider text-zinc-300 shadow-lg">
+                    <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full glow-dot"></span>
+                    <span data-en="CREATIVE EXPLORER & CONTENT CREATOR" data-si="නිර්මාණශීලී සංචාරක සහ අන්තර්ගත නිර්මාණකරු">CREATIVE EXPLORER & CONTENT CREATOR</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight">
+                    <span class="text-white" data-en="CAPTURE THE" data-si="ජීවිතයේ">CAPTURE THE</span><br>
+                    <span class="gradient-accent">EXTRAORDINARY</span>
+                </h1>
+
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal drop-shadow-sm"
+                   data-en="Exploring scenic world locations, crafting high-quality video edits, enjoying modern gaming, and showcasing personal technology projects."
+                   data-si="ලස්සන සංචාරක ස්ථාන ගවේෂණය, උසස් වීඩියෝ නිර්මාණකරණය, ගේමිං සහ නවීන තාක්ෂණික ව්‍යාපෘති එකතුව මෙතැනින් බලන්න.">
+                    Exploring scenic world locations, crafting high-quality video edits, enjoying modern gaming, and showcasing personal technology projects.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#travel" class="bg-white text-black px-8 py-4 rounded-xl text-xs font-extrabold tracking-wider uppercase hover:bg-zinc-200 transition-all shadow-2xl flex items-center gap-3">
+                        <i class="fa-solid fa-compass text-blue-600 text-sm"></i>
+                        <span data-en="EXPLORE TRAVELS" data-si="සංචාරයන් බලන්න">EXPLORE TRAVELS</span>
+                    </a>
+                    <a href="#socials" class="glass-card text-white px-8 py-4 rounded-xl text-xs font-extrabold tracking-wider uppercase hover:bg-zinc-800 transition-all flex items-center gap-3">
+                        <i class="fa-solid fa-share-nodes text-purple-400 text-sm"></i>
+                        <span data-en="CONNECT LINKS" data-si="සමාජ මාධ්‍ය">CONNECT LINKS</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Profile Display -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-sm">
+                    <!-- Glowing Outline Card -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur-lg opacity-40 group-hover:opacity-100 transition duration-1000"></div>
+                    
+                    <div class="relative glass-card p-6 rounded-3xl space-y-6">
+                        <div class="w-full h-80 rounded-2xl overflow-hidden relative group bg-zinc-900 border border-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Creator Profile" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x800/18181b/ffffff?text=CREATOR'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+<span class="bg-black/80 backdrop-blur-md text-emerald-400 border border-emerald-500/40 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                                    <span data-en="SRI LANKA" data-si="ශ්‍රී ලංකාව">SRI LANKA</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <h3 class="text-xl font-bold text-white uppercase tracking-wider" data-en="CONTENT CREATOR" data-si="අන්තර්ගත නිර්මාණකරු">CONTENT CREATOR</h3>
+                            <p class="text-xs text-zinc-300 tracking-wide font-medium" data-en="TRAVELER • VIDEO EDITOR • GAMER" data-si="සංචාරක • වීඩියෝ ශිල්පී • ගේමර්">TRAVELER • VIDEO EDITOR • GAMER</p>
+                        </div>
+
+                        <!-- Stats Tags -->
+                        <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-300 font-semibold">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-earth-americas text-blue-400"></i> <span data-en="WORLD TRAVEL" data-si="සංචාරක එකතුව">WORLD TRAVEL</span></span>
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-play text-red-500"></i> <span data-en="CREATIVE EDITS" data-si="වීඩියෝ නිර්මාණ">CREATIVE EDITS</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-zinc-800/80">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span class="text-xs font-extrabold tracking-widest uppercase text-blue-400" data-en="WHO I AM" data-si="මා ගැන විස්තර">WHO I AM</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-en="ABOUT & PASSIONS" data-si="මාගේ ආශාවන් සහ රුචිකත්වයන්">ABOUT & PASSIONS</h2>
+            <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Bio Card -->
+            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center text-xl shadow-lg">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white uppercase tracking-wider" data-en="MY STORY" data-si="මගේ කතාව">MY STORY</h3>
+                    <p class="text-zinc-300 text-sm leading-relaxed font-normal"
+                       data-en="I am an enthusiastic creator passionate about exploring outdoor destinations, creating cinematic video projects, immersing in gaming, and assembling modern technical gear setups."
+                       data-si="මම සුන්දර ස්ථාන නැරඹීමට, සිනමාත්මක වීඩියෝ නිර්මාණයට, ගේමිංවලට සහ නවීන තාක්ෂණික උපාංග භාවිතයට දැඩි කැමැත්තක් දක්වන නිර්මාණකරුවෙක්මි.">
+                        I am an enthusiastic creator passionate about exploring outdoor destinations, creating cinematic video projects, immersing in gaming, and assembling modern technical gear setups.
+                    </p>
+                </div>
+                <div class="mt-8 pt-6 border-t border-zinc-800/80 text-xs font-bold text-zinc-400 uppercase tracking-widest flex justify-between">
+                    <span data-en="PASSION DRIVEN" data-si="උනන්දුවෙන් යුතුව">PASSION DRIVEN</span>
+                    <span data-en="ALWAYS EXPLORING" data-si="නිරන්තරයෙන් ගවේෂණයේ">ALWAYS EXPLORING</span>
+                </div>
+            </div>
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+<!-- Interests Grid -->
+            <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                
+                <!-- Travel Card -->
+                <div class="glass-card p-6 rounded-3xl transition-all group hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-mountain-sun"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white mb-2" data-en="TRAVEL & EXPLORATION" data-si="සංචාරය සහ ගවේෂණය">TRAVEL & EXPLORATION</h4>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
+                       data-en="Hiking mountain trails, discovering tropical beaches, and experiencing rich cultural sites."
+                       data-si="කඳු නැගීම, සුන්දර වෙරළ තීරයන් සහ ඓතිහාසික ස්ථාන නැරඹීමට ඇති කැමැත්ත.">
+                       Hiking mountain trails, discovering tropical beaches, and experiencing rich cultural sites.
+                    </p>
+                </div>
+
+                <!-- Video Editing Card -->
+                <div class="glass-card p-6 rounded-3xl transition-all group hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white mb-2" data-en="CINEMATIC VIDEO EDITING" data-si="වීඩියෝ සංස්කරණය">CINEMATIC VIDEO EDITING</h4>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
+                       data-en="Producing travel vlogs, color grading footage, sound design, and drone video montages."
+                       data-si="සංචාරක වීඩියෝ, ශබ්ද සංයෝජනය සහ ඩ්‍රෝන දර්ශන යොදා ගනිමින් වීඩියෝ සකස් කිරීම.">
+                       Producing travel vlogs, color grading footage, sound design, and drone video montages.
+                    </p>
+                </div>
+
+                <!-- Gaming Card -->
+                <div class="glass-card p-6 rounded-3xl transition-all group hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white mb-2" data-en="GAMING & ESPORTS" data-si="ගේමිං සහ තරඟකාරී ක්‍රීඩා">GAMING & ESPORTS</h4>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
+                       data-en="Playing immersive open-world action titles, tactical strategy games, and multiplayer leagues."
+                       data-si="ආකර්ෂණීය open-world ක්‍රීඩා සහ තරඟකාරී ගේම්ස් හි නිරත වීම.">
+                       Playing immersive open-world action titles, tactical strategy games, and multiplayer leagues.
+                    </p>
+                </div>
+
+                <!-- Tech & Hardware Setup Card -->
+                <div class="glass-card p-6 rounded-3xl transition-all group hover:-translate-y-1">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white mb-2" data-en="TECH & PC SETUPS" data-si="තාක්ෂණය සහ පරිගණක">TECH & PC SETUPS</h4>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
+                       data-en="Building custom PC setups, testing modern gadgets, and optimizing productivity workspaces."
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+data-si="පරිගණක පද්ධති සැකසීම, නවීන උපාංග පරික්ෂාව සහ කාර්යක්ෂම වැඩබිමක් සකස් කිරීම.">
+                       Building custom PC setups, testing modern gadgets, and optimizing productivity workspaces.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Gallery Section -->
+    <section id="travel" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-zinc-800/80">
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <span class="text-xs font-extrabold tracking-widest uppercase text-emerald-400" data-en="MEMORABLE JOURNEYS" data-si="සංචාරක මතකයන්">MEMORABLE JOURNEYS</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-en="TRAVEL GALLERY" data-si="සංචාරක ඡායාරූප එකතුව">TRAVEL GALLERY</h2>
+            <div class="w-12 h-1 bg-gradient-to-r from-emerald-400 to-teal-500 mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Category Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button onclick="filterTravel('all', event)" class="travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-black transition-all shadow-lg">
+                <span data-en="ALL DESTINATIONS" data-si="සියලුම ස්ථාන">ALL DESTINATIONS</span>
+            </button>
+            <button onclick="filterTravel('mountains', event)" class="travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-zinc-300 hover:text-white transition-all">
+                <span data-en="MOUNTAINS" data-si="කඳුකර">MOUNTAINS</span>
+            </button>
+            <button onclick="filterTravel('beaches', event)" class="travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-zinc-300 hover:text-white transition-all">
+                <span data-en="BEACHES" data-si="වෙරළ">BEACHES</span>
+            </button>
+            <button onclick="filterTravel('cultural', event)" class="travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-zinc-300 hover:text-white transition-all">
+                <span data-en="CULTURAL" data-si="ඓතිහාසික">CULTURAL</span>
+            </button>
+        </div>
+
+        <!-- Travel Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="travelGrid">
+            
+            <!-- Destination 1 -->
+            <div class="travel-card mountains glass-card rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-2">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80" alt="Ella Nine Arch" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=ELLA'">
+                    <span class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-emerald-400 border border-emerald-500/40 text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">
+                        ELLA
+                    </span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <h3 class="text-lg font-bold text-white uppercase tracking-wider" data-en="NINE ARCH BRIDGE" data-si="ආරුක්කු නවයේ පාලම">NINE ARCH BRIDGE</h3>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
+                       data-en="Early morning trek through lush tea estates to watch trains pass over the iconic arch structure."
+                       data-si="ලස්සන තේ වතු මැදින් පැමිණ නරඹන ලද සුන්දර ආරුක්කු පාලමේ උදෑසන දර්ශනය.">
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+Early morning trek through lush tea estates to watch trains pass over the iconic arch structure.
+                    </p>
+                    <div class="pt-4 border-t border-zinc-800/80 flex justify-between items-center text-xs text-zinc-400 font-semibold">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-red-500"></i> Sri Lanka</span>
+                        <span class="text-emerald-400" data-en="MOUNTAIN TRAIL" data-si="කඳුකර මාර්ගය">MOUNTAIN TRAIL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 2 -->
+            <div class="travel-card beaches glass-card rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-2">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Mirissa Beach" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=MIRISSA'">
+                    <span class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-amber-400 border border-amber-500/40 text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">
+                        MIRISSA
+                    </span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <h3 class="text-lg font-bold text-white uppercase tracking-wider" data-en="COCONUT TREE HILL" data-si="දකුණු වෙරළ තීරය">COCONUT TREE HILL</h3>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
+                       data-en="Panoramic sunset ocean views along Sri Lanka's vibrant southern coastline."
+                       data-si="දකුණු වෙරළ තීරයේ පිහිටි සුන්දර හිරු බැස යාමේ දර්ශන එකතුව.">
+                       Panoramic sunset ocean views along Sri Lanka's vibrant southern coastline.
+                    </p>
+                    <div class="pt-4 border-t border-zinc-800/80 flex justify-between items-center text-xs text-zinc-400 font-semibold">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-red-500"></i> Mirissa</span>
+                        <span class="text-amber-400" data-en="COASTAL ESCAPE" data-si="මුහුදු තීරය">COASTAL ESCAPE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 3 -->
+            <div class="travel-card cultural glass-card rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-2">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80" alt="Sigiriya Fortress" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=SIGIRIYA'">
+                    <span class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-purple-400 border border-purple-500/40 text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">
+                        SIGIRIYA
+                    </span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <h3 class="text-lg font-bold text-white uppercase tracking-wider" data-en="ANCIENT ROCK FORTRESS" data-si="සීගිරිය පර්වතය">ANCIENT ROCK FORTRESS</h3>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
+                       data-en="Climbing the historic lion rock citadel and capturing ancient architectural wonders."
+                       data-si="ඓතිහාසික සීගිරි පර්වතය සහ අතීත තාක්ෂණික නිර්මාණ නැරඹීම.">
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+Climbing the historic lion rock citadel and capturing ancient architectural wonders.
+                    </p>
+                    <div class="pt-4 border-t border-zinc-800/80 flex justify-between items-center text-xs text-zinc-400 font-semibold">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-red-500"></i> Dambulla</span>
+                        <span class="text-purple-400" data-en="HERITAGE SITE" data-si="ඓතිහාසික උරුමය">HERITAGE SITE</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- My Works / Projects Section -->
+    <section id="projects" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-zinc-800/80">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span class="text-xs font-extrabold tracking-widest uppercase text-purple-400" data-en="CREATIVE PORTFOLIO" data-si="නිර්මාණ එකතුව">CREATIVE PORTFOLIO</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-en="WORKS & CREATIONS" data-si="ව්‍යාපෘති සහ නිර්මාණ">WORKS & CREATIONS</h2>
+            <div class="w-12 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project 1 -->
+            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between group hover:-translate-y-1 transition-all">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="w-10 h-10 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-500 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-red-500/10 border border-red-500/30 text-red-400 rounded-full" data-en="VIDEO PRODUCTION" data-si="වීඩියෝ නිෂ්පාදනය">VIDEO PRODUCTION</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white uppercase tracking-wider" data-en="TRAVEL REELS & VLOGS" data-si="සංචාරක වීඩියෝ එකතුව">TRAVEL REELS & VLOGS</h3>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
+                       data-en="High-energy cinematic travel vlogs, color graded scenes, atmospheric sound effects, and short-form social reels."
+                       data-si="ලස්සන සංචාරක වීඩියෝ, ශබ්ද සංයෝජන සහ සමාජ මාධ්‍ය සඳහා නිර්මාණය කළ වීඩියෝ එකතුව.">
+                       High-energy cinematic travel vlogs, color graded scenes, atmospheric sound effects, and short-form social reels.
+                    </p>
+                </div>
+                <div class="mt-8 pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest" data-en="EDITING & MEDIA" data-si="සංස්කරණය සහ මාධ්‍ය">EDITING & MEDIA</span>
+                    <a href="#socials" class="text-white hover:text-purple-400 flex items-center gap-2 font-bold uppercase tracking-wider transition-colors">
+                        <span data-en="WATCH NOW" data-si="නරඹන්න">WATCH NOW</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between group hover:-translate-y-1 transition-all">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="w-10 h-10 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center text-lg">
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+<i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400 rounded-full" data-en="SETUP & TECH" data-si="තාක්ෂණය">SETUP & TECH</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white uppercase tracking-wider" data-en="CUSTOM WORKSTATION" data-si="පරිගණක පද්ධති">CUSTOM WORKSTATION</h3>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
+                       data-en="High performance PC build configured specifically for smooth 4K video rendering and high frame-rate gaming."
+                       data-si="වීඩියෝ සංස්කරණය සහ ගේමිං සඳහා ප්‍රශස්ත ලෙස සැකසූ උසස් පරිගණක පද්ධති.">
+                       High performance PC build configured specifically for smooth 4K video rendering and high frame-rate gaming.
+                    </p>
+                </div>
+                <div class="mt-8 pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs">
+                    <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest" data-en="HARDWARE CONFIG" data-si="පරිගණක සැකසුම්">HARDWARE CONFIG</span>
+                    <a href="#socials" class="text-white hover:text-blue-400 flex items-center gap-2 font-bold uppercase tracking-wider transition-colors">
+                        <span data-en="DETAILS" data-si="විස්තර">DETAILS</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section id="socials" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-zinc-800/80">
+        <div class="glass-card p-8 sm:p-14 rounded-3xl text-center space-y-12 relative overflow-hidden">
+            <!-- Background Glow -->
+            <div class="absolute -top-24 -right-24 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
+            
+            <div class="max-w-2xl mx-auto space-y-3 relative z-10">
+                <span class="text-xs font-extrabold tracking-widest uppercase text-pink-400" data-en="STAY CONNECTED" data-si="එකතු වන්න">STAY CONNECTED</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-en="OFFICIAL CHANNELS" data-si="මාගේ සමාජ මාධ්‍ය සබැඳි">OFFICIAL CHANNELS</h2>
+                <div class="w-12 h-1 bg-gradient-to-r from-pink-500 to-rose-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Official Brand Colored Social Badges -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 relative z-10">
+                
+                <!-- YouTube -->
+                <a href="https://youtube.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-red-500/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
+                    <i class="fa-brands fa-youtube text-3xl text-red-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold tracking-wider text-zinc-200">YOUTUBE</span>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://instagram.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-pink-500/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
+                    <i class="fa-brands fa-instagram text-3xl text-pink-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold tracking-wider text-zinc-200">INSTAGRAM</span>
+                </a>
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+<!-- TikTok -->
+                <a href="https://tiktok.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-cyan-400/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
+                    <i class="fa-brands fa-tiktok text-3xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold tracking-wider text-zinc-200">TIKTOK</span>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://facebook.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-blue-500/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
+                    <i class="fa-brands fa-facebook-f text-3xl text-blue-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold tracking-wider text-zinc-200">FACEBOOK</span>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://whatsapp.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-emerald-500/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-3xl text-emerald-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold tracking-wider text-zinc-200">WHATSAPP</span>
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://telegram.org" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-sky-400/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
+                    <i class="fa-brands fa-telegram text-3xl text-sky-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold tracking-wider text-zinc-200">TELEGRAM</span>
+                </a>
+
+            </div>
+
+            <div class="relative z-10 pt-4">
+                <button onclick="openContactModal()" class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-10 py-4 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:opacity-90 transition-all shadow-xl hover:shadow-purple-500/25 inline-flex items-center gap-3">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span data-en="SEND DIRECT MESSAGE" data-si="පණිවුඩයක් යොමු කරන්න">SEND DIRECT MESSAGE</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden transition-opacity duration-300">
+        <div class="glass-card w-full max-w-lg p-8 rounded-3xl relative shadow-2xl space-y-6 bg-zinc-950/95 border border-zinc-700/80">
+            
+            <button onclick="closeContactModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors" aria-label="Close modal">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+
+            <div>
+                <h3 class="text-2xl font-bold uppercase tracking-wider text-white" data-en="GET IN TOUCH" data-si="සම්බන්ධ වන්න">GET IN TOUCH</h3>
+                <p class="text-xs text-zinc-300 mt-1 font-normal" data-en="Send a message and I will reply as soon as possible." data-si="ඔබගේ පණිවුඩය තබන්න, මම හැකි ඉක්මනින් සම්බන්ධ වන්නෙමි.">
+                    Send a message and I will reply as soon as possible.
+                </p>
+            </div>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+<label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-300 mb-1" data-en="YOUR NAME" data-si="ඔබගේ නම">YOUR NAME</label>
+                    <input type="text" required class="w-full px-4 py-3 bg-zinc-900/90 border border-zinc-700 rounded-xl focus:border-purple-500 focus:outline-none text-white text-xs font-normal">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-300 mb-1" data-en="YOUR EMAIL" data-si="විද්‍යුත් තැපෑල (EMAIL)">YOUR EMAIL</label>
+                    <input type="email" required class="w-full px-4 py-3 bg-zinc-900/90 border border-zinc-700 rounded-xl focus:border-purple-500 focus:outline-none text-white text-xs font-normal">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-300 mb-1" data-en="MESSAGE" data-si="පණිවුඩය">MESSAGE</label>
+                    <textarea rows="4" required class="w-full px-4 py-3 bg-zinc-900/90 border border-zinc-700 rounded-xl focus:border-purple-500 focus:outline-none text-white text-xs font-normal resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:opacity-90 transition-all shadow-lg">
+                    <span data-en="SEND MESSAGE" data-si="පණිවුඩය යවන්න">SEND MESSAGE</span>
+                </button>
+            </form>
+
+            <div id="formStatus" class="hidden p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-center text-xs font-bold text-emerald-400">
+                <i class="fa-solid fa-circle-check mr-2"></i>
+                <span data-en="MESSAGE SENT SUCCESSFULLY!" data-si="පණිවුඩය සාර්ථකව යොමු විය!">MESSAGE SENT SUCCESSFULLY!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-zinc-800/80 text-center text-[11px] tracking-widest uppercase text-zinc-400">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <div class="flex items-center justify-center gap-2">
+                <div class="w-6 h-6 bg-white text-black font-extrabold text-xs flex items-center justify-center rounded-lg">M</div>
+                <span class="font-extrabold text-white tracking-wider">PORTFOLIO</span>
+            </div>
+            <p data-en="© 2026 PERSONAL PORTFOLIO. ALL RIGHTS RESERVED." data-si="© 2026 පෞද්ගලික වෙබ් අඩවිය. සියලුම හිමිකම් ඇවිරිණි.">
+                © 2026 PERSONAL PORTFOLIO. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Language Toggle Functionality
+        function setLanguage(lang) {
+            const btnEn = document.getElementById('btnEn');
+            const btnSi = document.getElementById('btnSi');
+
+            if (lang === 'en') {
+                document.documentElement.lang = 'en';
+                btnEn.className = 'px-3 py-1.5 rounded-lg bg-white text-black transition-all shadow-md';
+                btnSi.className = 'px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-all';
+                document.getElementById('docTitle').innerText = 'PORTFOLIO | Creative Showcase';
+            } else {
+                document.documentElement.lang = 'si';
+                btnSi.className = 'px-3 py-1.5 rounded-lg bg-white text-black transition-all shadow-md';
+                btnEn.className = 'px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-all';
+                document.getElementById('docTitle').innerText = 'මගේ පෞද්ගලික වෙබ් අඩවිය';
+            }
+
+            // Translate Text Across Page
+
+Vihanga Vimoksha, [10/11/2026 7:22 PM]
+const elements = document.querySelectorAll('[data-en][data-si]');
+            elements.forEach(el => {
+                const text = el.getAttribute(data-${lang});
+                if (text) {
+                    el.innerText = text;
+                }
+            });
+        }
+
+        // Mobile Menu Navigation
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Travel Filter Logic
+        function filterTravel(category, evt) {
+            const cards = document.querySelectorAll('.travel-card');
+            const buttons = document.querySelectorAll('.travel-btn');
+
+            buttons.forEach(btn => {
+                btn.className = 'travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-zinc-300 hover:text-white transition-all';
+            });
+
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.className = 'travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-black transition-all shadow-lg';
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact Form Modal Logic
+        function openContactModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+            document.getElementById('formStatus').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('formStatus').classList.remove('hidden');
+            document.getElementById('contactForm').reset();
+
+            setTimeout(() => {
+                closeContactModal();
+            }, 3000);
+        }
+
+        // Initialize Page Default Settings
+        window.addEventListener('DOMContentLoaded', () => {
+            setLanguage('en');
+        });
+    </script>
+</body>
+</html>
+`
