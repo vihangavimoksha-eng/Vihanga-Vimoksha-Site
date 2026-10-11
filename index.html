@@ -1,691 +1,687 @@
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-`html
+Vihanga Vimoksha, [10/11/2026 7:43 PM]
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="docTitle">PORTFOLIO | Creative Showcase</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            yt: '#FF0000',
-                            ig: '#E4405F',
-                            fb: '#1877F2',
-                            wa: '#25D366',
-                            tg: '#24A1DE',
-                            tt: '#00F2FE'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Vihanga - Personal Portfolio</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Sinhala:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        :root {
+            --bg-color: #0b0f19;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(15, 23, 42, 0.75);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --nav-bg: rgba(11, 15, 25, 0.85);
+            --accent-glow: rgba(255, 255, 255, 0.05);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --modal-bg: rgba(15, 23, 42, 0.95);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f1f5f9;
+            --text-color: #0f172a;
+            --text-muted: #475569;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --card-border: rgba(0, 0, 0, 0.1);
+            --nav-bg: rgba(241, 245, 249, 0.85);
+            --accent-glow: rgba(0, 0, 0, 0.03);
+            --input-bg: rgba(0, 0, 0, 0.05);
+            --modal-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Plus Jakarta Sans', 'Noto Sans Sinhala', sans-serif;
-            background-color: #050508;
-            color: #f4f4f5;
-            /* Atmospheric dark nature background image with overlay */
-            background-image: 
-                linear-gradient(to bottom, rgba(5, 5, 8, 0.82), rgba(5, 5, 8, 0.92)),
-                url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1920&q=80');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        /* Glassmorphism Card Effects */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Natural Dark Background Image Overlay */
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            z-index: -2;
+            filter: brightness(0.6);
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, var(--bg-color) 90%);
+            z-index: -1;
+            opacity: 0.85;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .logo-badge {
+            background: var(--text-color);
+            color: var(--bg-color);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+Vihanga Vimoksha, [10/11/2026 7:43 PM]
+.nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-color);
+        }
+
+        /* Controls: Language & Theme */
+        .controls-group {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-control {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-control:hover {
+            border-color: var(--text-color);
+        }
+
+        .btn-control.active {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .profile-img-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, #3b82f6, #ec4899, #8b5cf6);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #1e293b;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--text-color);
+            color: var(--bg-color);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Common Section Layout */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* Glass Cards */
         .glass-card {
-            background: rgba(15, 17, 23, 0.75);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
         }
 
-        .glass-card:hover {
-            border-color: rgba(255, 255, 255, 0.28);
-            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.06);
+        /* About & Interests Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
         }
 
-        .glass-nav {
-            background: rgba(8, 10, 15, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .interest-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
         }
 
-        /* Gradient Text Highlights */
-        .gradient-accent {
-            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .interest-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        /* Custom Animated Glowing Elements */
-        .glow-dot {
-            box-shadow: 0 0 12px #22c55e;
+        /* Travel Gallery */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .btn-filter {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
         }
-        ::-webkit-scrollbar-track {
-            background: #050508;
+
+        .btn-filter.active, .btn-filter:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
         }
-        ::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 4px;
+
+Vihanga Vimoksha, [10/11/2026 7:43 PM]
+.gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #52525b;
+
+        .gallery-item {
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        .gallery-info {
+            padding: 1.5rem;
+        }
+
+        /* Social Media Badges */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .social-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
+        .social-badge i {
+            font-size: 1.8rem;
+        }
+
+        .social-badge.youtube i { color: #ff0000; }
+        .social-badge.instagram i { color: #e1306c; }
+        .social-badge.facebook i { color: #1877f2; }
+        .social-badge.tiktok i { color: #25f4ee; }
+        .social-badge.whatsapp i { color: #25d366; }
+        .social-badge.telegram i { color: #0088cc; }
+
+        /* Contact Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--modal-bg);
+            border: 1px solid var(--card-border);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: var(--input-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            color: var(--text-color);
+            outline: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
-<body class="min-h-screen selection:bg-white selection:text-black">
+<body>
 
-    <!-- Navigation Bar -->
-    <header class="fixed top-0 left-0 w-full z-50">
-        <nav class="glass-nav px-4 sm:px-8 py-4">
-            <div class="max-w-7xl mx-auto flex items-center justify-between">
-                <!-- Logo -->
-                <a href="#hero" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 bg-white text-black font-black text-xl flex items-center justify-center rounded-xl shadow-lg transition-transform group-hover:scale-105">
-                        M
-                    </div>
-                    <span class="font-extrabold text-lg tracking-wider text-white uppercase">PORTFOLIO</span>
-                </a>
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
 
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-<!-- Desktop Navigation Links -->
-                <div class="hidden md:flex items-center gap-8 text-xs font-bold tracking-widest uppercase text-zinc-300">
-                    <a href="#about" class="hover:text-white transition-colors" data-en="ABOUT" data-si="මා ගැන">ABOUT</a>
-                    <a href="#travel" class="hover:text-white transition-colors" data-en="TRAVEL" data-si="සංචාර">TRAVEL</a>
-                    <a href="#projects" class="hover:text-white transition-colors" data-en="WORKS" data-si="නිර්මාණ">WORKS</a>
-                    <a href="#socials" class="hover:text-white transition-colors" data-en="CONNECT" data-si="සබැඳි">CONNECT</a>
-                </div>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-badge">V</div> Vihanga
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="navAbout">About</a></li>
+                <li><a href="#travel" data-i18n="navTravel">Travel</a></li>
+                <li><a href="#social" data-i18n="navSocial">Connect</a></li>
+            </ul>
 
-                <!-- Action Controls -->
-                <div class="flex items-center gap-4">
-                    <!-- Language Switcher Toggle -->
-                    <div class="flex items-center bg-zinc-900/90 p-1 rounded-xl border border-zinc-700/80 text-xs font-bold">
-                        <button id="btnEn" onclick="setLanguage('en')" class="px-3 py-1.5 rounded-lg bg-white text-black transition-all shadow-md">EN</button>
-                        <button id="btnSi" onclick="setLanguage('si')" class="px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-all">සිංහල</button>
-                    </div>
-
-                    <!-- Contact Trigger Button -->
-                    <button onclick="openContactModal()" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-all shadow-lg hover:shadow-purple-500/20">
-                        <i class="fa-solid fa-paper-plane text-xs"></i>
-                        <span data-en="CONTACT" data-si="සම්බන්ධ වන්න">CONTACT</span>
-                    </button>
-
-                    <!-- Mobile Navigation Hamburger -->
-                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-white text-xl" aria-label="Toggle Navigation">
-                        <i class="fa-solid fa-bars" id="menuIcon"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile Dropdown Menu -->
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pt-4 border-t border-zinc-800/80 flex flex-col gap-4 text-xs font-bold tracking-widest uppercase text-zinc-300">
-                <a href="#about" onclick="toggleMobileMenu()" class="hover:text-white transition-colors p-2" data-en="ABOUT" data-si="මා ගැන">ABOUT</a>
-                <a href="#travel" onclick="toggleMobileMenu()" class="hover:text-white transition-colors p-2" data-en="TRAVEL" data-si="සංචාර">TRAVEL</a>
-                <a href="#projects" onclick="toggleMobileMenu()" class="hover:text-white transition-colors p-2" data-en="WORKS" data-si="නිර්මාණ">WORKS</a>
-                <a href="#socials" onclick="toggleMobileMenu()" class="hover:text-white transition-colors p-2" data-en="CONNECT" data-si="සබැඳි">CONNECT</a>
-                <button onclick="openContactModal(); toggleMobileMenu();" class="w-full text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl text-xs font-bold uppercase tracking-wider mt-2">
-                    <span data-en="CONTACT ME" data-si="සම්බන්ධ වන්න">CONTACT ME</span>
+            <div class="controls-group">
+                <!-- Theme Switcher -->
+                <button class="btn-control" id="themeToggle" onclick="toggleTheme()">
+                    <i class="fa-solid fa-sun" id="themeIcon"></i>
+                    <span id="themeText">Light</span>
                 </button>
+
+Vihanga Vimoksha, [10/11/2026 7:43 PM]
+<!-- Language Switcher -->
+                <button class="btn-control active" id="btnEN" onclick="setLanguage('en')">EN</button>
+                <button class="btn-control" id="btnSI" onclick="setLanguage('si')">සිංහල</button>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative pt-36 pb-20 md:pt-48 md:pb-32 px-4 sm:px-8 max-w-7xl mx-auto">
-        <!-- Ambient Glowing Background Bubbles -->
-        <div class="absolute top-20 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl -z-10"></div>
-        <div class="absolute top-40 right-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl -z-10"></div>
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Left Header Details -->
-            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
-                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-zinc-900/80 border border-zinc-700/80 text-xs font-bold tracking-wider text-zinc-300 shadow-lg">
-                    <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full glow-dot"></span>
-                    <span data-en="CREATIVE EXPLORER & CONTENT CREATOR" data-si="නිර්මාණශීලී සංචාරක සහ අන්තර්ගත නිර්මාණකරු">CREATIVE EXPLORER & CONTENT CREATOR</span>
-                </div>
-
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight">
-                    <span class="text-white" data-en="CAPTURE THE" data-si="ජීවිතයේ">CAPTURE THE</span><br>
-                    <span class="gradient-accent">EXTRAORDINARY</span>
-                </h1>
-
-                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal drop-shadow-sm"
-                   data-en="Exploring scenic world locations, crafting high-quality video edits, enjoying modern gaming, and showcasing personal technology projects."
-                   data-si="ලස්සන සංචාරක ස්ථාන ගවේෂණය, උසස් වීඩියෝ නිර්මාණකරණය, ගේමිං සහ නවීන තාක්ෂණික ව්‍යාපෘති එකතුව මෙතැනින් බලන්න.">
-                    Exploring scenic world locations, crafting high-quality video edits, enjoying modern gaming, and showcasing personal technology projects.
-                </p>
-
-                <!-- Action Buttons -->
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                    <a href="#travel" class="bg-white text-black px-8 py-4 rounded-xl text-xs font-extrabold tracking-wider uppercase hover:bg-zinc-200 transition-all shadow-2xl flex items-center gap-3">
-                        <i class="fa-solid fa-compass text-blue-600 text-sm"></i>
-                        <span data-en="EXPLORE TRAVELS" data-si="සංචාරයන් බලන්න">EXPLORE TRAVELS</span>
-                    </a>
-                    <a href="#socials" class="glass-card text-white px-8 py-4 rounded-xl text-xs font-extrabold tracking-wider uppercase hover:bg-zinc-800 transition-all flex items-center gap-3">
-                        <i class="fa-solid fa-share-nodes text-purple-400 text-sm"></i>
-                        <span data-en="CONNECT LINKS" data-si="සමාජ මාධ්‍ය">CONNECT LINKS</span>
-                    </a>
-                </div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="profile-img-container">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Profile" class="profile-img">
             </div>
-
-            <!-- Right Profile Display -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="relative w-full max-w-sm">
-                    <!-- Glowing Outline Card -->
-                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur-lg opacity-40 group-hover:opacity-100 transition duration-1000"></div>
-                    
-                    <div class="relative glass-card p-6 rounded-3xl space-y-6">
-                        <div class="w-full h-80 rounded-2xl overflow-hidden relative group bg-zinc-900 border border-zinc-800">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Creator Profile" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x800/18181b/ffffff?text=CREATOR'">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-<span class="bg-black/80 backdrop-blur-md text-emerald-400 border border-emerald-500/40 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
-                                    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                                    <span data-en="SRI LANKA" data-si="ශ්‍රී ලංකාව">SRI LANKA</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="space-y-1">
-                            <h3 class="text-xl font-bold text-white uppercase tracking-wider" data-en="CONTENT CREATOR" data-si="අන්තර්ගත නිර්මාණකරු">CONTENT CREATOR</h3>
-                            <p class="text-xs text-zinc-300 tracking-wide font-medium" data-en="TRAVELER • VIDEO EDITOR • GAMER" data-si="සංචාරක • වීඩියෝ ශිල්පී • ගේමර්">TRAVELER • VIDEO EDITOR • GAMER</p>
-                        </div>
-
-                        <!-- Stats Tags -->
-                        <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-300 font-semibold">
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-earth-americas text-blue-400"></i> <span data-en="WORLD TRAVEL" data-si="සංචාරක එකතුව">WORLD TRAVEL</span></span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-play text-red-500"></i> <span data-en="CREATIVE EDITS" data-si="වීඩියෝ නිර්මාණ">CREATIVE EDITS</span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <h1 data-i18n="heroTitle">Explorer, Creator & Tech Enthusiast</h1>
+            <p data-i18n="heroSubtitle">Sharing travel adventures, digital creations, and passion for technology.</p>
+            <button class="btn-primary" onclick="openContactModal()">
+                <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btnContact">Get In Touch</span>
+            </button>
         </div>
     </section>
 
-    <!-- About Me Section -->
-    <section id="about" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-zinc-800/80">
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span class="text-xs font-extrabold tracking-widest uppercase text-blue-400" data-en="WHO I AM" data-si="මා ගැන විස්තර">WHO I AM</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-en="ABOUT & PASSIONS" data-si="මාගේ ආශාවන් සහ රුචිකත්වයන්">ABOUT & PASSIONS</h2>
-            <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Bio Card -->
-            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
-                <div class="space-y-4">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center text-xl shadow-lg">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white uppercase tracking-wider" data-en="MY STORY" data-si="මගේ කතාව">MY STORY</h3>
-                    <p class="text-zinc-300 text-sm leading-relaxed font-normal"
-                       data-en="I am an enthusiastic creator passionate about exploring outdoor destinations, creating cinematic video projects, immersing in gaming, and assembling modern technical gear setups."
-                       data-si="මම සුන්දර ස්ථාන නැරඹීමට, සිනමාත්මක වීඩියෝ නිර්මාණයට, ගේමිංවලට සහ නවීන තාක්ෂණික උපාංග භාවිතයට දැඩි කැමැත්තක් දක්වන නිර්මාණකරුවෙක්මි.">
-                        I am an enthusiastic creator passionate about exploring outdoor destinations, creating cinematic video projects, immersing in gaming, and assembling modern technical gear setups.
-                    </p>
-                </div>
-                <div class="mt-8 pt-6 border-t border-zinc-800/80 text-xs font-bold text-zinc-400 uppercase tracking-widest flex justify-between">
-                    <span data-en="PASSION DRIVEN" data-si="උනන්දුවෙන් යුතුව">PASSION DRIVEN</span>
-                    <span data-en="ALWAYS EXPLORING" data-si="නිරන්තරයෙන් ගවේෂණයේ">ALWAYS EXPLORING</span>
-                </div>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title" data-i18n="aboutTitle">What I Do</h2>
+        <div class="about-grid">
+            <div class="glass-card interest-card">
+                <div class="interest-icon" style="color: #3b82f6;"><i class="fa-solid fa-mountain-sun"></i></div>
+                <h3 data-i18n="card1Title">Travel & Exploring</h3>
+                <p data-i18n="card1Desc" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Capturing breathtaking landscapes and scenic journeys across the island.</p>
             </div>
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-<!-- Interests Grid -->
-            <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                
-                <!-- Travel Card -->
-                <div class="glass-card p-6 rounded-3xl transition-all group hover:-translate-y-1">
-                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-mountain-sun"></i>
-                    </div>
-                    <h4 class="text-base font-bold text-white mb-2" data-en="TRAVEL & EXPLORATION" data-si="සංචාරය සහ ගවේෂණය">TRAVEL & EXPLORATION</h4>
-                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
-                       data-en="Hiking mountain trails, discovering tropical beaches, and experiencing rich cultural sites."
-                       data-si="කඳු නැගීම, සුන්දර වෙරළ තීරයන් සහ ඓතිහාසික ස්ථාන නැරඹීමට ඇති කැමැත්ත.">
-                       Hiking mountain trails, discovering tropical beaches, and experiencing rich cultural sites.
-                    </p>
-                </div>
-
-                <!-- Video Editing Card -->
-                <div class="glass-card p-6 rounded-3xl transition-all group hover:-translate-y-1">
-                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-film"></i>
-                    </div>
-                    <h4 class="text-base font-bold text-white mb-2" data-en="CINEMATIC VIDEO EDITING" data-si="වීඩියෝ සංස්කරණය">CINEMATIC VIDEO EDITING</h4>
-                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
-                       data-en="Producing travel vlogs, color grading footage, sound design, and drone video montages."
-                       data-si="සංචාරක වීඩියෝ, ශබ්ද සංයෝජනය සහ ඩ්‍රෝන දර්ශන යොදා ගනිමින් වීඩියෝ සකස් කිරීම.">
-                       Producing travel vlogs, color grading footage, sound design, and drone video montages.
-                    </p>
-                </div>
-
-                <!-- Gaming Card -->
-                <div class="glass-card p-6 rounded-3xl transition-all group hover:-translate-y-1">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-gamepad"></i>
-                    </div>
-                    <h4 class="text-base font-bold text-white mb-2" data-en="GAMING & ESPORTS" data-si="ගේමිං සහ තරඟකාරී ක්‍රීඩා">GAMING & ESPORTS</h4>
-                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
-                       data-en="Playing immersive open-world action titles, tactical strategy games, and multiplayer leagues."
-                       data-si="ආකර්ෂණීය open-world ක්‍රීඩා සහ තරඟකාරී ගේම්ස් හි නිරත වීම.">
-                       Playing immersive open-world action titles, tactical strategy games, and multiplayer leagues.
-                    </p>
-                </div>
-
-                <!-- Tech & Hardware Setup Card -->
-                <div class="glass-card p-6 rounded-3xl transition-all group hover:-translate-y-1">
-                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-desktop"></i>
-                    </div>
-                    <h4 class="text-base font-bold text-white mb-2" data-en="TECH & PC SETUPS" data-si="තාක්ෂණය සහ පරිගණක">TECH & PC SETUPS</h4>
-                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
-                       data-en="Building custom PC setups, testing modern gadgets, and optimizing productivity workspaces."
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-data-si="පරිගණක පද්ධති සැකසීම, නවීන උපාංග පරික්ෂාව සහ කාර්යක්ෂම වැඩබිමක් සකස් කිරීම.">
-                       Building custom PC setups, testing modern gadgets, and optimizing productivity workspaces.
-                    </p>
-                </div>
-
+            <div class="glass-card interest-card">
+                <div class="interest-icon" style="color: #ec4899;"><i class="fa-solid fa-film"></i></div>
+                <h3 data-i18n="card2Title">Video Editing</h3>
+                <p data-i18n="card2Desc" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Crafting visual stories, YouTube content, and music media promotion.</p>
+            </div>
+            <div class="glass-card interest-card">
+                <div class="interest-icon" style="color: #10b981;"><i class="fa-solid fa-gamepad"></i></div>
+                <h3 data-i18n="card3Title">Gaming & Tech</h3>
+                <p data-i18n="card3Desc" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">PC setups, simulation games, hardware tweaks, and smart automation.</p>
             </div>
         </div>
     </section>
 
-    <!-- Travel Gallery Section -->
-    <section id="travel" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-zinc-800/80">
-        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span class="text-xs font-extrabold tracking-widest uppercase text-emerald-400" data-en="MEMORABLE JOURNEYS" data-si="සංචාරක මතකයන්">MEMORABLE JOURNEYS</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-en="TRAVEL GALLERY" data-si="සංචාරක ඡායාරූප එකතුව">TRAVEL GALLERY</h2>
-            <div class="w-12 h-1 bg-gradient-to-r from-emerald-400 to-teal-500 mx-auto rounded-full"></div>
+    <!-- Travel Gallery -->
+    <section id="travel">
+        <h2 class="section-title" data-i18n="travelTitle">Travel Diaries</h2>
+        <div class="filter-buttons">
+            <button class="btn-filter active" onclick="filterTravel('all')" data-i18n="filterAll">All</button>
+            <button class="btn-filter" onclick="filterTravel('mountains')" data-i18n="filterMountains">Mountains</button>
+            <button class="btn-filter" onclick="filterTravel('beaches')" data-i18n="filterBeaches">Beaches</button>
         </div>
 
-        <!-- Category Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12">
-            <button onclick="filterTravel('all', event)" class="travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-black transition-all shadow-lg">
-                <span data-en="ALL DESTINATIONS" data-si="සියලුම ස්ථාන">ALL DESTINATIONS</span>
-            </button>
-            <button onclick="filterTravel('mountains', event)" class="travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-zinc-300 hover:text-white transition-all">
-                <span data-en="MOUNTAINS" data-si="කඳුකර">MOUNTAINS</span>
-            </button>
-            <button onclick="filterTravel('beaches', event)" class="travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-zinc-300 hover:text-white transition-all">
-                <span data-en="BEACHES" data-si="වෙරළ">BEACHES</span>
-            </button>
-            <button onclick="filterTravel('cultural', event)" class="travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-zinc-300 hover:text-white transition-all">
-                <span data-en="CULTURAL" data-si="ඓතිහාසික">CULTURAL</span>
-            </button>
-        </div>
-
-        <!-- Travel Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="travelGrid">
-            
-            <!-- Destination 1 -->
-            <div class="travel-card mountains glass-card rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-2">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80" alt="Ella Nine Arch" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=ELLA'">
-                    <span class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-emerald-400 border border-emerald-500/40 text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">
-                        ELLA
-                    </span>
-                </div>
-                <div class="p-6 space-y-3">
-                    <h3 class="text-lg font-bold text-white uppercase tracking-wider" data-en="NINE ARCH BRIDGE" data-si="ආරුක්කු නවයේ පාලම">NINE ARCH BRIDGE</h3>
-                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
-                       data-en="Early morning trek through lush tea estates to watch trains pass over the iconic arch structure."
-                       data-si="ලස්සන තේ වතු මැදින් පැමිණ නරඹන ලද සුන්දර ආරුක්කු පාලමේ උදෑසන දර්ශනය.">
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-Early morning trek through lush tea estates to watch trains pass over the iconic arch structure.
-                    </p>
-                    <div class="pt-4 border-t border-zinc-800/80 flex justify-between items-center text-xs text-zinc-400 font-semibold">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-red-500"></i> Sri Lanka</span>
-                        <span class="text-emerald-400" data-en="MOUNTAIN TRAIL" data-si="කඳුකර මාර්ගය">MOUNTAIN TRAIL</span>
-                    </div>
+        <div class="gallery-grid">
+            <div class="glass-card gallery-item" data-category="mountains">
+                <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Ella">
+                <div class="gallery-info">
+                    <h3>Ella, Sri Lanka</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="ellaDesc">Misty hills and iconic railway views.</p>
                 </div>
             </div>
+            <div class="glass-card gallery-item" data-category="beaches">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Mirissa">
 
-            <!-- Destination 2 -->
-            <div class="travel-card beaches glass-card rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-2">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Mirissa Beach" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=MIRISSA'">
-                    <span class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-amber-400 border border-amber-500/40 text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">
-                        MIRISSA
-                    </span>
-                </div>
-                <div class="p-6 space-y-3">
-                    <h3 class="text-lg font-bold text-white uppercase tracking-wider" data-en="COCONUT TREE HILL" data-si="දකුණු වෙරළ තීරය">COCONUT TREE HILL</h3>
-                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
-                       data-en="Panoramic sunset ocean views along Sri Lanka's vibrant southern coastline."
-                       data-si="දකුණු වෙරළ තීරයේ පිහිටි සුන්දර හිරු බැස යාමේ දර්ශන එකතුව.">
-                       Panoramic sunset ocean views along Sri Lanka's vibrant southern coastline.
-                    </p>
-                    <div class="pt-4 border-t border-zinc-800/80 flex justify-between items-center text-xs text-zinc-400 font-semibold">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-red-500"></i> Mirissa</span>
-                        <span class="text-amber-400" data-en="COASTAL ESCAPE" data-si="මුහුදු තීරය">COASTAL ESCAPE</span>
-                    </div>
+Vihanga Vimoksha, [10/11/2026 7:43 PM]
+<div class="gallery-info">
+                    <h3>Mirissa Coast</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="mirissaDesc">Golden sands and coastal waves.</p>
                 </div>
             </div>
-
-            <!-- Destination 3 -->
-            <div class="travel-card cultural glass-card rounded-3xl overflow-hidden transition-all duration-300 group hover:-translate-y-2">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80" alt="Sigiriya Fortress" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=SIGIRIYA'">
-                    <span class="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-purple-400 border border-purple-500/40 text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">
-                        SIGIRIYA
-                    </span>
-                </div>
-                <div class="p-6 space-y-3">
-                    <h3 class="text-lg font-bold text-white uppercase tracking-wider" data-en="ANCIENT ROCK FORTRESS" data-si="සීගිරිය පර්වතය">ANCIENT ROCK FORTRESS</h3>
-                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
-                       data-en="Climbing the historic lion rock citadel and capturing ancient architectural wonders."
-                       data-si="ඓතිහාසික සීගිරි පර්වතය සහ අතීත තාක්ෂණික නිර්මාණ නැරඹීම.">
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-Climbing the historic lion rock citadel and capturing ancient architectural wonders.
-                    </p>
-                    <div class="pt-4 border-t border-zinc-800/80 flex justify-between items-center text-xs text-zinc-400 font-semibold">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-red-500"></i> Dambulla</span>
-                        <span class="text-purple-400" data-en="HERITAGE SITE" data-si="ඓතිහාසික උරුමය">HERITAGE SITE</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- My Works / Projects Section -->
-    <section id="projects" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-zinc-800/80">
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span class="text-xs font-extrabold tracking-widest uppercase text-purple-400" data-en="CREATIVE PORTFOLIO" data-si="නිර්මාණ එකතුව">CREATIVE PORTFOLIO</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-en="WORKS & CREATIONS" data-si="ව්‍යාපෘති සහ නිර්මාණ">WORKS & CREATIONS</h2>
-            <div class="w-12 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project 1 -->
-            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between group hover:-translate-y-1 transition-all">
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <div class="w-10 h-10 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-500 flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-red-500/10 border border-red-500/30 text-red-400 rounded-full" data-en="VIDEO PRODUCTION" data-si="වීඩියෝ නිෂ්පාදනය">VIDEO PRODUCTION</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white uppercase tracking-wider" data-en="TRAVEL REELS & VLOGS" data-si="සංචාරක වීඩියෝ එකතුව">TRAVEL REELS & VLOGS</h3>
-                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
-                       data-en="High-energy cinematic travel vlogs, color graded scenes, atmospheric sound effects, and short-form social reels."
-                       data-si="ලස්සන සංචාරක වීඩියෝ, ශබ්ද සංයෝජන සහ සමාජ මාධ්‍ය සඳහා නිර්මාණය කළ වීඩියෝ එකතුව.">
-                       High-energy cinematic travel vlogs, color graded scenes, atmospheric sound effects, and short-form social reels.
-                    </p>
-                </div>
-                <div class="mt-8 pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs">
-                    <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest" data-en="EDITING & MEDIA" data-si="සංස්කරණය සහ මාධ්‍ය">EDITING & MEDIA</span>
-                    <a href="#socials" class="text-white hover:text-purple-400 flex items-center gap-2 font-bold uppercase tracking-wider transition-colors">
-                        <span data-en="WATCH NOW" data-si="නරඹන්න">WATCH NOW</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="glass-card p-8 rounded-3xl flex flex-col justify-between group hover:-translate-y-1 transition-all">
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <div class="w-10 h-10 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center text-lg">
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-<i class="fa-solid fa-sliders"></i>
-                        </div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400 rounded-full" data-en="SETUP & TECH" data-si="තාක්ෂණය">SETUP & TECH</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white uppercase tracking-wider" data-en="CUSTOM WORKSTATION" data-si="පරිගණක පද්ධති">CUSTOM WORKSTATION</h3>
-                    <p class="text-xs text-zinc-300 leading-relaxed font-normal"
-                       data-en="High performance PC build configured specifically for smooth 4K video rendering and high frame-rate gaming."
-                       data-si="වීඩියෝ සංස්කරණය සහ ගේමිං සඳහා ප්‍රශස්ත ලෙස සැකසූ උසස් පරිගණක පද්ධති.">
-                       High performance PC build configured specifically for smooth 4K video rendering and high frame-rate gaming.
-                    </p>
-                </div>
-                <div class="mt-8 pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs">
-                    <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest" data-en="HARDWARE CONFIG" data-si="පරිගණක සැකසුම්">HARDWARE CONFIG</span>
-                    <a href="#socials" class="text-white hover:text-blue-400 flex items-center gap-2 font-bold uppercase tracking-wider transition-colors">
-                        <span data-en="DETAILS" data-si="විස්තර">DETAILS</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
+            <div class="glass-card gallery-item" data-category="mountains">
+                <img src="https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Central Highlands">
+                <div class="gallery-info">
+                    <h3>Central Highlands</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="highlandsDesc">Tea estates and scenic winding roads.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Links Section -->
-    <section id="socials" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-zinc-800/80">
-        <div class="glass-card p-8 sm:p-14 rounded-3xl text-center space-y-12 relative overflow-hidden">
-            <!-- Background Glow -->
-            <div class="absolute -top-24 -right-24 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
-            
-            <div class="max-w-2xl mx-auto space-y-3 relative z-10">
-                <span class="text-xs font-extrabold tracking-widest uppercase text-pink-400" data-en="STAY CONNECTED" data-si="එකතු වන්න">STAY CONNECTED</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-en="OFFICIAL CHANNELS" data-si="මාගේ සමාජ මාධ්‍ය සබැඳි">OFFICIAL CHANNELS</h2>
-                <div class="w-12 h-1 bg-gradient-to-r from-pink-500 to-rose-500 mx-auto rounded-full"></div>
-            </div>
-
-            <!-- Official Brand Colored Social Badges -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 relative z-10">
-                
-                <!-- YouTube -->
-                <a href="https://youtube.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-red-500/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
-                    <i class="fa-brands fa-youtube text-3xl text-red-500 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-xs font-bold tracking-wider text-zinc-200">YOUTUBE</span>
-                </a>
-
-                <!-- Instagram -->
-                <a href="https://instagram.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-pink-500/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
-                    <i class="fa-brands fa-instagram text-3xl text-pink-500 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-xs font-bold tracking-wider text-zinc-200">INSTAGRAM</span>
-                </a>
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-<!-- TikTok -->
-                <a href="https://tiktok.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-cyan-400/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
-                    <i class="fa-brands fa-tiktok text-3xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-xs font-bold tracking-wider text-zinc-200">TIKTOK</span>
-                </a>
-
-                <!-- Facebook -->
-                <a href="https://facebook.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-blue-500/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
-                    <i class="fa-brands fa-facebook-f text-3xl text-blue-500 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-xs font-bold tracking-wider text-zinc-200">FACEBOOK</span>
-                </a>
-
-                <!-- WhatsApp -->
-                <a href="https://whatsapp.com" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-emerald-500/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
-                    <i class="fa-brands fa-whatsapp text-3xl text-emerald-500 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-xs font-bold tracking-wider text-zinc-200">WHATSAPP</span>
-                </a>
-
-                <!-- Telegram -->
-                <a href="https://telegram.org" target="_blank" class="p-6 bg-zinc-950/80 border border-zinc-800/80 hover:border-sky-400/60 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 group shadow-lg">
-                    <i class="fa-brands fa-telegram text-3xl text-sky-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-xs font-bold tracking-wider text-zinc-200">TELEGRAM</span>
-                </a>
-
-            </div>
-
-            <div class="relative z-10 pt-4">
-                <button onclick="openContactModal()" class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-10 py-4 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:opacity-90 transition-all shadow-xl hover:shadow-purple-500/25 inline-flex items-center gap-3">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span data-en="SEND DIRECT MESSAGE" data-si="පණිවුඩයක් යොමු කරන්න">SEND DIRECT MESSAGE</span>
-                </button>
-            </div>
+    <!-- Social Media Links -->
+    <section id="social">
+        <h2 class="section-title" data-i18n="socialTitle">Connect With Me</h2>
+        <div class="social-grid">
+            <a href="#" class="glass-card social-badge youtube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+            <a href="#" class="glass-card social-badge instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="#" class="glass-card social-badge facebook"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="#" class="glass-card social-badge tiktok"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <a href="#" class="glass-card social-badge whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="#" class="glass-card social-badge telegram"><i class="fa-brands fa-telegram"></i> Telegram</a>
         </div>
     </section>
 
-    <!-- Contact Form Modal -->
-    <div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden transition-opacity duration-300">
-        <div class="glass-card w-full max-w-lg p-8 rounded-3xl relative shadow-2xl space-y-6 bg-zinc-950/95 border border-zinc-700/80">
-            
-            <button onclick="closeContactModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors" aria-label="Close modal">
-                <i class="fa-solid fa-xmark text-2xl"></i>
-            </button>
-
-            <div>
-                <h3 class="text-2xl font-bold uppercase tracking-wider text-white" data-en="GET IN TOUCH" data-si="සම්බන්ධ වන්න">GET IN TOUCH</h3>
-                <p class="text-xs text-zinc-300 mt-1 font-normal" data-en="Send a message and I will reply as soon as possible." data-si="ඔබගේ පණිවුඩය තබන්න, මම හැකි ඉක්මනින් සම්බන්ධ වන්නෙමි.">
-                    Send a message and I will reply as soon as possible.
-                </p>
-            </div>
-
-            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div>
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-<label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-300 mb-1" data-en="YOUR NAME" data-si="ඔබගේ නම">YOUR NAME</label>
-                    <input type="text" required class="w-full px-4 py-3 bg-zinc-900/90 border border-zinc-700 rounded-xl focus:border-purple-500 focus:outline-none text-white text-xs font-normal">
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="glass-card modal-content">
+            <span class="close-modal" onclick="closeContactModal()">&times;</span>
+            <h3 style="margin-bottom: 1.5rem;" data-i18n="modalTitle">Send a Message</h3>
+            <form onsubmit="handleContactSubmit(event)">
+                <div class="form-group">
+                    <label data-i18n="labelName">Your Name</label>
+                    <input type="text" class="form-control" required>
                 </div>
-
-                <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-300 mb-1" data-en="YOUR EMAIL" data-si="විද්‍යුත් තැපෑල (EMAIL)">YOUR EMAIL</label>
-                    <input type="email" required class="w-full px-4 py-3 bg-zinc-900/90 border border-zinc-700 rounded-xl focus:border-purple-500 focus:outline-none text-white text-xs font-normal">
+                <div class="form-group">
+                    <label data-i18n="labelEmail">Your Email</label>
+                    <input type="email" class="form-control" required>
                 </div>
-
-                <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-wider text-zinc-300 mb-1" data-en="MESSAGE" data-si="පණිවුඩය">MESSAGE</label>
-                    <textarea rows="4" required class="w-full px-4 py-3 bg-zinc-900/90 border border-zinc-700 rounded-xl focus:border-purple-500 focus:outline-none text-white text-xs font-normal resize-none"></textarea>
+                <div class="form-group">
+                    <label data-i18n="labelMessage">Message</label>
+                    <textarea class="form-control" rows="4" required></textarea>
                 </div>
-
-                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:opacity-90 transition-all shadow-lg">
-                    <span data-en="SEND MESSAGE" data-si="පණිවුඩය යවන්න">SEND MESSAGE</span>
-                </button>
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;" data-i18n="btnSend">Send Message</button>
             </form>
-
-            <div id="formStatus" class="hidden p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-center text-xs font-bold text-emerald-400">
-                <i class="fa-solid fa-circle-check mr-2"></i>
-                <span data-en="MESSAGE SENT SUCCESSFULLY!" data-si="පණිවුඩය සාර්ථකව යොමු විය!">MESSAGE SENT SUCCESSFULLY!</span>
-            </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-zinc-800/80 text-center text-[11px] tracking-widest uppercase text-zinc-400">
-        <div class="max-w-7xl mx-auto px-4 space-y-4">
-            <div class="flex items-center justify-center gap-2">
-                <div class="w-6 h-6 bg-white text-black font-extrabold text-xs flex items-center justify-center rounded-lg">M</div>
-                <span class="font-extrabold text-white tracking-wider">PORTFOLIO</span>
-            </div>
-            <p data-en="© 2026 PERSONAL PORTFOLIO. ALL RIGHTS RESERVED." data-si="© 2026 පෞද්ගලික වෙබ් අඩවිය. සියලුම හිමිකම් ඇවිරිණි.">
-                © 2026 PERSONAL PORTFOLIO. ALL RIGHTS RESERVED.
-            </p>
-        </div>
+    <footer>
+        <p>© 2026 Vihanga. Designed with Nature Dark Theme.</p>
     </footer>
 
-    <!-- JavaScript Interactions -->
     <script>
-        // Language Toggle Functionality
+        const translations = {
+            en: {
+                navAbout: "About",
+                navTravel: "Travel",
+                navSocial: "Connect",
+                heroTitle: "Explorer, Creator & Tech Enthusiast",
+                heroSubtitle: "Sharing travel adventures, digital creations, and passion for technology.",
+                btnContact: "Get In Touch",
+                aboutTitle: "What I Do",
+                card1Title: "Travel & Exploring",
+                card1Desc: "Capturing breathtaking landscapes and scenic journeys across the island.",
+                card2Title: "Video Editing",
+                card2Desc: "Crafting visual stories, YouTube content, and music media promotion.",
+                card3Title: "Gaming & Tech",
+                card3Desc: "PC setups, simulation games, hardware tweaks, and smart automation.",
+
+Vihanga Vimoksha, [10/11/2026 7:43 PM]
+travelTitle: "Travel Diaries",
+                filterAll: "All",
+                filterMountains: "Mountains",
+                filterBeaches: "Beaches",
+                ellaDesc: "Misty hills and iconic railway views.",
+                mirissaDesc: "Golden sands and coastal waves.",
+                highlandsDesc: "Tea estates and scenic winding roads.",
+                socialTitle: "Connect With Me",
+                modalTitle: "Send a Message",
+                labelName: "Your Name",
+                labelEmail: "Your Email",
+                labelMessage: "Message",
+                btnSend: "Send Message"
+            },
+            si: {
+                navAbout: "මම ගැන",
+                navTravel: "සංචාර",
+                navSocial: "සම්බන්ධ වන්න",
+                heroTitle: "සංචාරක, නිර්මාණශීලී සහ තාක්ෂණික ලෝලියෙක්",
+                heroSubtitle: "මගේ සංචාරක අත්දැකීම්, වීඩියෝ නිර්මාණ සහ තාක්ෂණික තොරතුරු මෙතැනින්.",
+                btnContact: "පණිවුඩයක් යවන්න",
+                aboutTitle: "මගේ ආශාවන් සහ ක්ෂේත්‍ර",
+                card1Title: "සංචාරය සහ ගවේෂණය",
+                card1Desc: "දිවයින පුරා සුන්දර ස්ථාන, කඳු පන්ති සහ වෙරළ තීරයන් නැරඹීම.",
+                card2Title: "වීඩියෝ සංස්කරණය",
+                card2Desc: "YouTube වීඩියෝ, සංගීත ප්‍රවර්ධන මාධ්‍ය සහ මෝස්තර නිර්මාණය.",
+                card3Title: "Gaming සහ Tech Setup",
+                card3Desc: "PC ක්‍රීඩා, Computer Hardware, සහ තාක්ෂණික අත්හදා බැලීම්.",
+                travelTitle: "සංචාරක මතකයන්",
+                filterAll: "සියල්ල",
+                filterMountains: "කඳු පන්ති",
+                filterBeaches: "වෙරළ තීරයන්",
+                ellaDesc: "මීදුමෙන් බර වූ ඇල්ල කඳුකරයේ සුන්දරත්වය.",
+                mirissaDesc: "තංගල්ල සහ මිරිස්ස වෙරළ තීරයේ අලංකාරය.",
+                highlandsDesc: "මධ්‍යම කඳුකරයේ තේ වතු සහ පාරවල්.",
+                socialTitle: "මා හා සම්බන්ධ වන්න",
+                modalTitle: "සෘජුවම පණිවුඩයක් යවන්න",
+                labelName: "ඔබගේ නම",
+                labelEmail: "විද්‍යුත් තැපෑල",
+                labelMessage: "පණිවුඩය",
+                btnSend: "පණිවුඩය යවන්න"
+            }
+        };
+
+        let currentLang = 'en';
+
         function setLanguage(lang) {
-            const btnEn = document.getElementById('btnEn');
-            const btnSi = document.getElementById('btnSi');
+            currentLang = lang;
+            document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+            document.getElementById('btnSI').classList.toggle('active', lang === 'si');
 
-            if (lang === 'en') {
-                document.documentElement.lang = 'en';
-                btnEn.className = 'px-3 py-1.5 rounded-lg bg-white text-black transition-all shadow-md';
-                btnSi.className = 'px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-all';
-                document.getElementById('docTitle').innerText = 'PORTFOLIO | Creative Showcase';
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        /* Theme Toggle Function */
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.body.setAttribute('data-theme', newTheme);
+            
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+            
+            if (newTheme === 'light') {
+                themeIcon.className = 'fa-solid fa-moon';
+                themeText.textContent = 'Dark';
             } else {
-                document.documentElement.lang = 'si';
-                btnSi.className = 'px-3 py-1.5 rounded-lg bg-white text-black transition-all shadow-md';
-                btnEn.className = 'px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition-all';
-                document.getElementById('docTitle').innerText = 'මගේ පෞද්ගලික වෙබ් අඩවිය';
+                themeIcon.className = 'fa-solid fa-sun';
+                themeText.textContent = 'Light';
             }
-
-            // Translate Text Across Page
-
-Vihanga Vimoksha, [10/11/2026 7:22 PM]
-const elements = document.querySelectorAll('[data-en][data-si]');
-            elements.forEach(el => {
-                const text = el.getAttribute(data-${lang});
-                if (text) {
-                    el.innerText = text;
-                }
-            });
         }
 
-        // Mobile Menu Navigation
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
+        /* Travel Filter */
+        function filterTravel(category) {
+            document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-        // Travel Filter Logic
-        function filterTravel(category, evt) {
-            const cards = document.querySelectorAll('.travel-card');
-            const buttons = document.querySelectorAll('.travel-btn');
-
-            buttons.forEach(btn => {
-                btn.className = 'travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-zinc-300 hover:text-white transition-all';
-            });
-
-            if (evt && evt.currentTarget) {
-                evt.currentTarget.className = 'travel-btn px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-black transition-all shadow-lg';
-            }
-
-            cards.forEach(card => {
-                if (category === 'all' || card.classList.contains(category)) {
-                    card.style.display = 'block';
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
                 } else {
-                    card.style.display = 'none';
+                    item.style.display = 'none';
                 }
             });
         }
 
-        // Contact Form Modal Logic
+Vihanga Vimoksha, [10/11/2026 7:43 PM]
+/* Contact Modal */
         function openContactModal() {
-            document.getElementById('contactModal').classList.remove('hidden');
+            document.getElementById('contactModal').classList.add('active');
         }
 
         function closeContactModal() {
-            document.getElementById('contactModal').classList.add('hidden');
-            document.getElementById('formStatus').classList.add('hidden');
+            document.getElementById('contactModal').classList.remove('active');
         }
 
-        function handleFormSubmit(e) {
+        function handleContactSubmit(e) {
             e.preventDefault();
-            document.getElementById('formStatus').classList.remove('hidden');
-            document.getElementById('contactForm').reset();
-
-            setTimeout(() => {
-                closeContactModal();
-            }, 3000);
+            alert(currentLang === 'en' ? 'Thank you! Message sent.' : 'ස්තූතියි! ඔබගේ පණිවුඩය යැවුණි.');
+            closeContactModal();
         }
-
-        // Initialize Page Default Settings
-        window.addEventListener('DOMContentLoaded', () => {
-            setLanguage('en');
-        });
     </script>
 </body>
 </html>
-`
