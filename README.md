@@ -1,1 +1,1 @@
-# Vihanga-Vimoksha-Site
+# Vihanga
