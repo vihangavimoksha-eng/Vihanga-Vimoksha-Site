@@ -1,80 +1,4 @@
-Vihanga Vimoksha, [10/12/2026 12:15 PM]
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel & Exploring | Vihanga Vimoksha</title>
-    <!-- Main Style Sheet -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Background එක එකපාරටම Dark කරන්න Custom Style එකක් -->
-    <style>
-        body {
-            background-color: #0d1117 !important; /* Main Dark Background */
-            color: #f0f6fc !important;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, sans-serif;
-        }
-    </style>
-</head>
-<body>
-    <!-- Background Overlay (Dark Atmospheric Light Effect) -->
-    <div class="bg-overlay"></div>
-
-    <!-- Header / Navbar -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo" style="text-decoration: none;">
-                <span class="logo-badge">V</span> Vihanga
-            </a>
-            <a href="index.html" class="btn-primary" style="padding: 0.5rem 1rem; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem;">
-                <i class="fa-solid fa-arrow-left"></i> Back to Main
-            </a>
-        </div>
-    </header>
-
-    <!-- Content Section -->
-    <main style="padding-top: 120px; min-height: 80vh;">
-        <section class="hero" style="min-height: auto; padding-bottom: 2rem; text-align: center;">
-            <div class="hero-content">
-                <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Travel & Exploring</h1>
-                <p style="color: #8b949e;">Capturing breathtaking landscapes and scenic journeys across the island.</p>
-            </div>
-        </section>
-
-        <!-- Glass Cards Section -->
-        <section style="max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 4rem;">
-            <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-                
-                <div class="glass-card" style="padding: 1.5rem; border-radius: 12px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h3 style="margin-bottom: 0.5rem; color: #3b82f6;">Recent Adventures</h3>
-                    <p style="color: #8b949e; font-size: 0.95rem;">
-                        Add your travel details, photography, or story descriptions here.
-                    </p>
-                </div>
-
-                <div class="glass-card" style="padding: 1.5rem; border-radius: 12px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h3 style="margin-bottom: 0.5rem; color: #ec4899;">Favorite Destinations</h3>
-                    <p style="color: #8b949e; font-size: 0.95rem;">
-                        Share your favorite places and travel diaries here.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: #8b949e; font-size: 0.9rem;">
-        <p>&copy; 2026 Vihanga Vimoksha. All rights reserved.</p>
-    </footer>
-</body>
-</html>
-
-Vihanga Vimoksha, [10/12/2026 12:38 PM]
+Vihanga Vimoksha, [10/12/2026 2:41 PM]
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +9,7 @@ Vihanga Vimoksha, [10/12/2026 12:38 PM]
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Base Reset & Dark Atmospheric Styles */
+        /* Base Reset & Atmospheric Dark Theme */
         * {
             margin: 0;
             padding: 0;
@@ -94,21 +18,24 @@ Vihanga Vimoksha, [10/12/2026 12:38 PM]
         }
 
         body {
-            background-color: #0b0f17 !important;
+            /* Scenic Mountain Travel Background with Dark Overlay */
+            background: linear-gradient(rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), 
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
             color: #e2e8f0;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Ambient Background Glows */
+        /* Ambient Blue & Teal Glows */
         .bg-glow-1 {
             position: fixed;
             top: -100px;
-            left: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 70%);
+            right: -100px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(0,0,0,0) 70%);
             z-index: -1;
             pointer-events: none;
         }
@@ -116,10 +43,10 @@ Vihanga Vimoksha, [10/12/2026 12:38 PM]
         .bg-glow-2 {
             position: fixed;
             bottom: -100px;
-            right: -100px;
+            left: -100px;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(0,0,0,0) 70%);
             z-index: -1;
             pointer-events: none;
         }
@@ -131,7 +58,7 @@ Vihanga Vimoksha, [10/12/2026 12:38 PM]
             left: 0;
             width: 100%;
             padding: 1.2rem 2rem;
-            background: rgba(11, 15, 23, 0.75);
+            background: rgba(11, 15, 23, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -152,7 +79,7 @@ Vihanga Vimoksha, [10/12/2026 12:38 PM]
         }
 
         .logo-badge {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(135deg, #3b82f6, #0ea5e9);
             color: #fff;
             padding: 0.2rem 0.6rem;
             border-radius: 8px;
@@ -195,20 +122,150 @@ Vihanga Vimoksha, [10/12/2026 12:38 PM]
         }
 
         .hero-title h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            background: linear-gradient(135deg, #60a5fa, #38bdf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.8rem;
         }
 
-        .hero-title p {
+Vihanga Vimoksha, [10/12/2026 2:41 PM]
+.hero-title p {
             color: #94a3b8;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Grid & Glass Cards */
+        /* Cards Grid */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 2.2rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-icon {
+            font-size: 2.3rem;
+            color: #3b82f6;
+            margin-bottom: 1.2rem;
+        }
+
+        .glass-card h3 {
+            font-size: 1.4rem;
+            color: #f1f5f9;
+            margin-bottom: 0.8rem;
+        }
+
+        .glass-card p {
+            color: #94a3b8;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        /* Highlight Feature Box */
+        .highlight-box {
+            margin-top: 2.5rem;
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px dashed rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .highlight-box p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glow Effects -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-badge">V</span> Vihanga
+        </a>
+        <a href="index.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Back to Main
+        </a>
+    </header>
+
+    <!-- Page Body -->
+    <main>
+        <div class="hero-title">
+            <h1>Travel & Exploring</h1>
+            <p>Capturing breathtaking landscapes, scenic mountain trails, and memorable journeys across Sri Lanka.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="glass-card">
+                <div class="card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                <h3>Scenic Landscapes</h3>
+                <p>Exploring misty hills, lush green tea plantations, cascading waterfalls, and breathtaking island horizons.</p>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-icon" style="color: #0ea5e9;"><i class="fa-solid fa-camera-retro"></i></div>
+                <h3>Adventure Photography</h3>
+                <p>Documenting raw outdoor moments, wildlife glimpses, road trips, and dramatic nature lighting.</p>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-icon" style="color: #10b981;"><i class="fa-solid fa-compass"></i></div>
+                <h3>Travel Diaries</h3>
+                <p>Curated stories, hidden paths, camping experiences, and unforgettable travel memories from across the country.</p>
+            </div>
+        </div>
+
+        <!-- Extra Feature Section -->
+        <div class="highlight-box">
+            <h3>Ready for the Next Journey?</h3>
+            <p>New destination logs and gallery updates coming soon. Stay tuned for more adventures!</p>
+        </div>
+    </main>
+
+Vihanga Vimoksha, [10/12/2026 2:41 PM]
+<!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Vihanga Vimoksha. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
