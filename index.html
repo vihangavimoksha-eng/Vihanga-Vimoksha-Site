@@ -431,14 +431,26 @@
 
             <div class="controls-group">
                 <!-- Theme Switcher -->
-                <button class="btn-control" id="themeToggle" onclick="toggleTheme()">
-                    <i class="fa-solid fa-sun" id="themeIcon"></i>
-                    <span id="themeText">Light</span>
-                </button>
-<!-- Language Switcher -->
+               <!-- Right side controls: Personal Photos + Theme Toggle + Language Switcher -->
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+            
+            <!-- Personal Photos Button -->
+            <a href="photos.html" style="color: #fbbf24; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(245, 158, 11, 0.12); padding: 0.4rem 0.9rem; border-radius: 20px; border: 1px solid rgba(245, 158, 11, 0.35); transition: 0.3s;">
+                <i class="fa-solid fa-camera-retro"></i> <span>Personal Photos</span>
+            </a>
+
+            <!-- Theme Toggle Button -->
+            <button class="btn-control" id="themeToggle" onclick="toggleTheme()" style="cursor: pointer; display: flex; align-items: center; gap: 0.4rem;">
+                <i class="fa-solid fa-sun" id="themeIcon"></i>
+                <span id="themeText">Light</span>
+            </button>
+
+            <!-- Language Switcher -->
+            <div style="display: flex; gap: 0.3rem;">
                 <button class="btn-control active" id="btnEN" onclick="setLanguage('en')">EN</button>
                 <button class="btn-control" id="btnSI" onclick="setLanguage('si')">සිංහල</button>
             </div>
+
         </div>
     </header>
 
@@ -679,6 +691,59 @@ travelTitle: "Travel Diaries",
             alert(currentLang === 'en' ? 'Thank you! Message sent.' : 'ස්තූතියි! ඔබගේ පණිවුඩය යැවුණි.');
             closeContactModal();
         }
-    </script>
+   <script>
+// Theme Toggle Functionality
+function toggleTheme() {
+    const body = document.body;
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+    
+    body.classList.toggle('light-theme');
+    
+    if (body.classList.contains('light-theme')) {
+        if(themeIcon) themeIcon.className = 'fa-solid fa-moon';
+        if(themeText) themeText.innerText = 'Dark';
+        localStorage.setItem('site-theme', 'light');
+    } else {
+        if(themeIcon) themeIcon.className = 'fa-solid fa-sun';
+        if(themeText) themeText.innerText = 'Light';
+        localStorage.setItem('site-theme', 'dark');
+    }
+}
+
+// Load saved theme on startup
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('site-theme') === 'light') {
+        document.body.classList.add('light-theme');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        if(themeIcon) themeIcon.className = 'fa-solid fa-moon';
+        if(themeText) themeText.innerText = 'Dark';
+    }
+});
+</script>
+
+<style>
+/* Light Theme Colors */
+body.light-theme {
+    background-color: #f8fafc !important;
+    background-image: none !important;
+    color: #0f172a !important;
+}
+body.light-theme .navbar {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+body.light-theme .glass-card {
+    background: rgba(255, 255, 255, 0.75) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+body.light-theme h1, body.light-theme h2, body.light-theme h3 {
+    color: #0f172a !important;
+}
+body.light-theme p {
+    color: #475569 !important;
+}
+</style>
 </body>
 </html>
