@@ -1,0 +1,241 @@
+Vihanga Vimoksha, [10/12/2026 12:47 PM]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming & Tech | Vihanga Vimoksha</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Base Reset & Tech Dark Theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            /* Tech Background Image with Dark Overlay */
+            background: linear-gradient(rgba(11, 15, 23, 0.88), rgba(11, 15, 23, 0.95)), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            color: #e2e8f0;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Cyan & Neon Glows */
+        .bg-glow-1 {
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-glow-2 {
+            position: fixed;
+            bottom: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: rgba(11, 15, 23, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 130px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-bottom: 4rem;
+        }
+
+        .hero-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-title h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #34d399, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-title p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+        }
+
+Vihanga Vimoksha, [10/12/2026 12:47 PM]
+/* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+
+        .glass-card h3 {
+            font-size: 1.3rem;
+            color: #f1f5f9;
+            margin-bottom: 0.6rem;
+        }
+
+        .glass-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glow Effects -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-badge">V</span> Vihanga
+        </a>
+        <a href="index.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Back to Main
+        </a>
+    </header>
+
+    <!-- Page Body -->
+    <main>
+        <div class="hero-title">
+            <h1>Gaming & Tech Hub</h1>
+            <p>PC setups, simulation games, hardware tweaks, and smart automation.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="glass-card">
+                <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                <h3>PC Gaming</h3>
+                <p>Simulation gaming, Euro Truck Simulator 2, GTA series, and performance optimizations.</p>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-icon" style="color: #3b82f6;"><i class="fa-solid fa-microchip"></i></div>
+                <h3>Hardware Setup</h3>
+                <p>Desktop rig configurations, custom tweaks, system specs, and display setups.</p>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-icon" style="color: #a855f7;"><i class="fa-solid fa-robot"></i></div>
+                <h3>Automation & Projects</h3>
+                <p>Custom Telegram bots, Google Apps Script integration, and DIY tech builds.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Vihanga Vimoksha. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
