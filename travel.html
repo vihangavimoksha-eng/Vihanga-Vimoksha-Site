@@ -1,66 +1,74 @@
-Vihanga Vimoksha, [10/12/2026 11:53 AM]
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel & Exploring | Vihanga Vimoksha</title>
-    <!-- Same CSS File & FontAwesome Icons -->
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel & Exploring | Vihanga Vimoksha</title>
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Background එක එකපාරටම Dark කරන්න Custom Style එකක් -->
+    <style>
+        body {
+            background-color: #0d1117 !important; /* Main Dark Background */
+            color: #f0f6fc !important;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <!-- Background Overlay (Same Atmospheric Theme) -->
-    <div class="bg-overlay"></div>
+    <!-- Background Overlay (Dark Atmospheric Light Effect) -->
+    <div class="bg-overlay"></div>
 
-    <!-- Header / Navbar -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-badge">V</span> Vihanga
-            </a>
-            <a href="index.html" class="btn-primary" style="padding: 0.5rem 1rem; text-decoration: none; font-size: 0.9rem;">
-                <i class="fa-solid fa-arrow-left"></i> Back to Main
-            </a>
-        </div>
-    </header>
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <span class="logo-badge">V</span> Vihanga
+            </a>
+            <a href="index.html" class="btn-primary" style="padding: 0.5rem 1rem; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Main
+            </a>
+        </div>
+    </header>
 
-    <!-- Sub-page Content Section -->
-    <main style="padding-top: 120px; min-height: 80vh;">
-        <section class="hero" style="min-height: auto; padding-bottom: 2rem;">
-            <div class="hero-content">
-                <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Travel & Exploring</h1>
-                <p style="color: var(--text-muted);">Capturing breathtaking landscapes and scenic journeys across the island.</p>
-            </div>
-        </section>
+    <!-- Content Section -->
+    <main style="padding-top: 120px; min-height: 80vh;">
+        <section class="hero" style="min-height: auto; padding-bottom: 2rem; text-align: center;">
+            <div class="hero-content">
+                <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Travel & Exploring</h1>
+                <p style="color: #8b949e;">Capturing breathtaking landscapes and scenic journeys across the island.</p>
+            </div>
+        </section>
 
-        <!-- Gallery / Content Cards (Same Glass-morphism Style) -->
-        <section class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 4rem;">
-            <div class="about-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-                
-                <!-- Card 1 -->
-                <div class="glass-card" style="padding: 1.5rem;">
-                    <h3 style="margin-bottom: 0.5rem; color: #3b82f6;">Recent Adventures</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                        Add your travel details, photography, or story descriptions here.
-                    </p>
-                </div>
+        <!-- Glass Cards Section -->
+        <section style="max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 4rem;">
+            <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                
+                <div class="glass-card" style="padding: 1.5rem; border-radius: 12px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3 style="margin-bottom: 0.5rem; color: #3b82f6;">Recent Adventures</h3>
+                    <p style="color: #8b949e; font-size: 0.95rem;">
+                        Add your travel details, photography, or story descriptions here.
+                    </p>
+                </div>
 
-                <!-- Card 2 -->
-                <div class="glass-card" style="padding: 1.5rem;">
-                    <h3 style="margin-bottom: 0.5rem; color: #ec4899;">Favorite Destinations</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                        Share your favorite places and travel diaries here.
-                    </p>
-                </div>
+                <div class="glass-card" style="padding: 1.5rem; border-radius: 12px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3 style="margin-bottom: 0.5rem; color: #ec4899;">Favorite Destinations</h3>
+                    <p style="color: #8b949e; font-size: 0.95rem;">
+                        Share your favorite places and travel diaries here.
+                    </p>
+                </div>
 
-            </div>
-        </section>
-    </main>
+            </div>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.9rem;">
-        <p>&copy; 2026 Vihanga Vimoksha. All rights reserved.</p>
-    </footer>
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: #8b949e; font-size: 0.9rem;">
+        <p>&copy; 2026 Vihanga Vimoksha. All rights reserved.</p>
+    </footer>
 </body>
 </html>
